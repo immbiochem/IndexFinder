@@ -101,7 +101,7 @@ class IndexFinder:
             X[index_name] = X[list(comb[0])].sum(axis=1)/X[list(comb[1])].sum(axis=1)
             #
             X_train, X_test, y_train, y_test = train_test_split(X[[index_name]], X[self.target], 
-                                                                random_state=SEED, stratify=X[self.target], 
+                                                                random_state=self.seed, stratify=X[self.target], 
                                                                 train_size=0.75)
             model = LogisticRegression(random_state=42)
             model.fit(X_train, y_train)
